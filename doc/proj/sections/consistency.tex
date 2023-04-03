@@ -1,0 +1,16 @@
+\section{Consistency}
+%\begin{description}
+%	\item[Definition: ] Whether or not the numerical solution gives the same solution as the differential equation.
+%\end{description}
+%
+%The numerical method is said to be consistent if,
+%\begin{align*}
+%	\mathcal{N}_h\,y(t_n) &= O(h_n^p), & \implies \frac{y(t_n) - y(t_{n-1})}{h_n} - f(t_{n-1},y(t_{n-1})) &= O(h_n^p).
+%\end{align*}
+%Here, $f(t_n,y(t_n))$ is given. However, $y(t_n)$ cannot be determined. Therefore, we cannot check for consistency. 
+%
+%Hoover, we can check the consistence of the solver by using a test equation. The test equation is given as follows:
+%\begin{align*}
+%	f(t,y) &= -\lambda\,y, \quad y(0) = 1. \\
+%	\textbf{Analytical solution: } & y = e^{-\lambda\,t}.
+%\end{align*}

@@ -1,0 +1,9 @@
+\section{Conclusion}
+A permanent magnet synchronous machine (PMSM) was modeled and simulated using a fixed-step method and a variable step-method
+\subsection{Fixed-step method}
+A simple \textit{Euler forward} numerical method was selected and the convergence of the solver was verified using a test equation. The PMSM was simulated between $ 0\leq t \leq 2$\,s for different step-lengths $h$. For $h \leq 1\times10^{-4}$\,s the solver is convergent. Using the definition of convergence, it is concluded that as $h\rightarrow0$, the numerical solution is close to the true solution of the ODE.
+\subsection{Variable-step method}
+A \textit{Dormand-Prince 4(5)} numerical method was selected and the convergence of the solver was verified using a test equation. The PMSM was simulated between $ 0\leq t \leq 2$\,s for different absolute (ATOL) and relative (RTOL) tolerances. For ATOL $\leq 10$ and RTOL $\leq 0.1$ the solver is both stable and the solution converges. Using the definition of convergence, it is concluded that as $h\rightarrow0$, i.e reducing ATOL and RTOL $\rightarrow 0$, the numerical solution is close to the true solution of the ODE.
+
+
+%numerical solution gives the same solution as the differential equation. However, we cannot determine the solution analytically. Therefore, we need to try perform the several checks. The following sections cover these in detail. 

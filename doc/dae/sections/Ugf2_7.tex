@@ -1,0 +1,65 @@
+\begin{enumerate}
+	\item[(a)] Consistent initial condition on $ x(0),\,\dot x(0),\,\ddot x(0)\,\dots $ for
+	\begin{align*}
+		E_1\,&:\,\begin{cases} 
+			\dot x &= x + y,\\
+			0 &= x + 2y + a(t).
+		\end{cases} & 
+		E_2\,&:\,\begin{cases} 
+			\dot x_1 &= -x_1 + x_2 + a(t),\\ 
+			\dot x_2 &= -x_2 + x_3 + b(t),\\ 	
+			0 &= x_2 + c(t).
+		\end{cases} 
+	\end{align*}
+	Considering $E_1$ we have the dynamic state $ x $ and the algebraic variable $ y $. We need an initial condition for $x(0),\ \&\ y(0)$. $ y(0) $ is chosen arbitrarily but $x$ is constrained by the equation: $x = - \left(2y + a(t)\right)$.\\
+	Considering $E_2$ we have the dynamic states $ x_1,\,x_2 $ and the algebraic variable $ x_3 $. Differentiating $ E_2(3) $, we get:
+	\begin{align*}
+		\begin{cases} 
+			E_2(1)\,:\,\dot x_1 &= -x_1 + x_2 + a(t),\\ 
+			E_2(2)\,:\,\dot x_2 &= -x_2 + x_3 + b(t),\\ 	
+			\dot E_2(3)\,:\dot x_2 &= -\dot c(t).
+		\end{cases} 
+	\end{align*}
+	From this it is clear that $ x_2(0) = \dot c(0) + b(0) + x_3(0),\ x_2(0) = -c(0)  $, this constraints $ x_2,\ x_3 $. However, there are not constrains on $ x_1 $.\\
+	\item[(b)] Hidden constrains
+	\begin{align*}
+		\dot x_1 + x_3 &= f_1 \\
+		\dot x_2 + x_1 &= f_2 \\
+		x_2 &= f_3. 
+	\end{align*}
+	\item[(c)] Differential index calculation.
+	\begin{align*}
+		e_1:\dot x_1 + \dot x_2 &= u_1,\\
+		e_2:x_1 - x_2 &= u_2.
+	\end{align*}
+	Differentiation $ e_2 $,
+	\begin{align*}
+		e_1:\dot x_1 + \dot x_2 &= u_1,\\
+		\dot e_2:\dot x_1 - \dot x_2 &= \dot u_2.
+	\end{align*}
+	Substituting $ e_1 $ and $ \dot e_2 $,
+	\begin{align*}
+		e_1:\dot x_1 &= \frac{u_1 + \dot u_2}{2},\\
+		\dot e_2:2\dot x_2 &= u_1 - \dot u_2 .
+	\end{align*}
+	Therefore, the differential index is 1.\\
+	\item[(d)] Differential index
+	\begin{align*}
+		e_1:\dot x_1 + x_3 &= u_1,\\
+		e_2:x_1 - x_2 &= u_2,\\
+		e_3:\dot x_2 = x_3.
+	\end{align*}
+	Differentiating $ e_2 $,
+	\begin{align*}
+		e_1:\dot x_1 + x_3 &= u_1,\\
+		\dot e_2:\dot x_1 - x_3 &= \dot u_2,\\
+		e_3:\dot x_2 = x_3.
+	\end{align*}
+	Differentiating $ \dot e_2 $,
+		\begin{align*}
+		e_1:\dot x_1 &= u_1 - x_3 ,\\
+		\ddot e_2:2\,\dot x_3 &=  \dot u_1 - \ddot u_2,\\
+		e_3:\dot x_2 = x_3.
+	\end{align*}
+	The differential index in now 2 for the same set of equations but with the addition of a variable.
+\end{enumerate}

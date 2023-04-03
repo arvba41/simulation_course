@@ -1,0 +1,43 @@
+Consider the following DAE :
+\begin{align*}
+	e_1 &: \dot x = f(x,y)\\
+	e_2 &: \dot y = g(x,y,z)\\
+	e_3 &: x = h(x)\\
+\end{align*}
+The Jacobian given as follows:
+\begin{center}
+	\begin{tabular}{c|c c c}
+		& $\dot x$ & $\dot y$ & z \\
+		\hline
+		$e_1$ & X & & \\
+		$e_2$ & & X & X \\
+		$e_3$ & & & \\
+	\end{tabular}  
+\end{center}
+We check the following: \\
+"If there exists a complete matching with respect to $x$ in the structure for a function $f(x,y)$, the Jacobian $f_x(x,y)$ has full rank for almost all $f$ with the same structure." 
+
+Now we differentiate $e_3$ and check again until we satisfy the aforementioned criteria.
+\begin{center}
+	\begin{tabular}{c|c c c}
+		& $\dot x$ & $\dot y$ & z \\
+		\hline
+		$e_1$ & X & & \\
+		$e_2$ & & X & X \\
+		$\dot e_3$ & X & & \\
+	\end{tabular} $\underrightarrow{\text{differentiating}\ e_1 \text{and}\ \dot e_3}$ 
+	\begin{tabular}{c|c c c}
+		& $\ddot x$ & $\dot y$ & z \\
+		\hline
+		$\dot e_1$ & X & \textbf{X} & \\
+		$e_2$ & & X & \textbf{X} \\
+		$\ddot e_3$ & \textbf{X} & & \\
+	\end{tabular}
+\end{center}
+With this we satisfy the condition. 
+
+Now we have differentiated the $e_1$ once, $e_3$ twice, and we have one algebraic variable $z$. Therefore, the structural index is 4.The Pantelides algorithm can be described, in brief, as follows:
+
+\fbox{\begin{minipage}[h!]{\textwidth}
+	No. of differentiations until the Jacobian has full-rank + 1 if there are a number of algebraic variables in the list of the Jacobian.
+\end{minipage}}	

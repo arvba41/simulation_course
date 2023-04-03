@@ -1,0 +1,122 @@
+Consider the following DAE:
+\begin{equation*}
+	\begin{pmatrix}
+		0 & 0\\
+		1 & \eta\,t 
+	\end{pmatrix} \, \begin{pmatrix}
+		\dot x \\
+		\dot y
+	\end{pmatrix} + 
+	\begin{pmatrix}
+		1 & \eta\,t \\
+		0 & 1 + \eta
+	\end{pmatrix} \,
+	\begin{pmatrix}
+		x \\
+		y
+	\end{pmatrix} =
+	\begin{pmatrix}
+		q \\
+		0
+	\end{pmatrix}
+\end{equation*}
+with $\eta$ > −1 and where $q$ is an arbitrary function of $t$.
+
+\begin{enumerate}
+	\item[(a)] DAE has differential index 2 \\
+	We have,
+	\begin{align*}
+		e_1\,:\,x + \eta\,t\,y &= q, & e_2\,:\,\dot x + \eta\,t\,\dot y + \left(1 + \eta\right)\,y &= 0,
+	\end{align*}
+	where $x$, $y$ are dynamic variables. In order to achive an ODE of the form $\dot X = f(X,t)$, where $X$ is the dynamic variable. We differentiate $e_1$:
+	\begin{align*}
+		\dot e_1\,:\,\dot x + \eta\,t\,\dot y + \eta\,y &= \dot q, & e_2\,:\,\dot x &= -\eta\,t\,\dot y - \left(1 + \eta\right)\,y.
+	\end{align*}
+	Furthermore, we substitute $e_2$ in $\dot e_1$. Thus we get:
+	\begin{align*}
+		\dot e_1\,: -y &= \dot q, & e_2\,:\,\dot x &= -\eta\,t\,\dot y - \left(1 + \eta\right)\,y.
+	\end{align*}
+	Now $e_2$ is not of the form $\dot X = f(X,t)$. Therefore, we differentiate $ \dot e_1 $. We get:
+	\begin{align*}
+		\ddot e_1\,: -\dot y &= \ddot q, & e_2\,:\,\dot x &= -\eta\,t\,\ddot q - \left(1 + \eta\right)\,y.
+	\end{align*}
+	\fbox{\begin{minipage}[h!]{\textwidth}
+			Here we differentiated the algebraic equation twice to reduce the above set of equations to an explicit ODE. Therefore the differential index is 2.
+	\end{minipage}}\\
+	\item[(b)] Exact solution \\
+	We know that from $\dot e_1$ that $y = -\dot q$ is one solution. Now integrating $e_2$ we get, $ x = \eta\,t\,\dot q + q $.
+	\item[(c)] Assuming that there is a new solution to the problem:
+	\begin{align*}
+		e_1\,:\tilde y &= -\dot q + f_1 & e_2\,:\tilde x &= \eta\,t\,\dot q + q + f_2,
+	\end{align*}
+	where $f_1$ and $f_2$ are arbitrary functions. 
+	
+	Substitution in the original DAE system, we get:
+	\begin{align*}
+		e_3\,:\,\tilde x + \eta\,t\,\tilde y &= q, & e_4\,:\,\dot{\tilde x} + \eta\,t\,\dot{\tilde y} + \left(1 + \eta\right)\,\tilde y &= 0.
+	\end{align*}
+	Considering $e_3$:
+	\begin{align*}
+		\eta\,t\,\dot q + q + f_2 - \eta\,t\,\dot q + \eta\,t\,f_1 &= q & \implies f_2 + \eta\,t\,f_1 &= 0 \quad :\,e_3
+	\end{align*}
+	Considering $e_4$:	
+	\begin{align*}
+		\eta\,t\,\ddot q + \eta\,\dot q + \dot q + \dot f_2 + \eta\,t\,(-\ddot q + \dot f_1) + \left(1 + \eta\right)\,(-\dot q + f_1) &= 0, \\
+		\eta\,t\,\ddot q + \eta\,\dot q + \dot q + \dot f_2 - \eta\,t\,\ddot q + \eta\,t\,\dot f_1 - \dot q - \eta\,\dot q + f_1 + \eta\,f_1 &= 0\\
+		\dot f_2 + \eta\,t\,\dot f_1 + \left(1 + \eta\right)\,f_1 &= 0\,:\,e_5.
+%		\eta\,t\,\ddot q + \dot q + \dot f_2 - \eta\,t\,\ddot q + \eta\,t\,\dot f_1 - \dot q + f_1 - \eta\,\dot q + \eta\,f_1 &= 0 & \implies \dot f_2 + \eta\,t\,\dot f_1 + f_1 - \eta\,\dot q + \eta\,f_1 &= 0 \,:\,e_4
+	\end{align*}	
+	From $e_3$, we know $f_2 + \eta\,t\,f_1 = 0 $. Therefore, $\dot f_2 + \eta\,t\,\dot f_1 = 0 $. Thus, $e_5$ becomes:
+	\begin{align*}
+		f_1\,\left(1+\eta\right) &= 0
+	\end{align*}
+	\fbox{\begin{minipage}[h!]{\textwidth}
+		For $\eta \neq -1$, $f_1 = 0$, from $e_3$, $f_2 = 0$. Therefore, $y = -\dot q$ and $ x = \eta\,t\,\dot q + q $ are the only solutions to the ODE.
+	\end{minipage}}\\
+	\item[(d)] Applying backward Euler to (a), we get: 
+	\begin{align*}
+		x_n + \eta\,t_n\,y_n &= q_n & \frac{x_n - x_{n-1}}{h} + \eta\,t_n\,\frac{y_n - y_{n-1}}{h} + y_n + \eta\,y_n &= 0.
+	\end{align*}
+	Substituting the left equation in the right equation, we get:
+	\begin{align*}
+		\frac{q_n - \eta\,t_n\,y_n - x_{n-1}}{h} + \eta\,t_n\,\frac{y_n - y_{n-1}}{h} + y_n + \eta\,y_n &= 0
+	\end{align*}
+	Thus,
+	\begin{align*}
+		y_n = \frac{1}{h\,\left(1 + \eta\right)}\,\left(x_{n-1} + \eta\,t_n\,y_{n-1} - q_n\right).
+	\end{align*}
+	The error in $y$ can be written as follows:
+	\begin{align*}
+		e^y_n = y(t) - y_n = y(t) - \frac{1}{h\,\left(1 + \eta\right)}\,\left(x_{n-1} + \eta\,t_n\,y_{n-1} - q_n\right)
+	\end{align*}
+	Substituting $y(t) = -\dot q$ and $x_n = q_{n-1} - \eta\,t_{n-1}\,y_{n-1}$, we get:
+	\begin{align*}
+		e^y_n = - \dot q - \frac{1}{h\,\left(1 + \eta\right)}\,\left(q_{n-1} - \eta\,t_{n-1}\,y_{n-1} + \eta\,t_n\,y_{n-1} - q_n\right).
+	\end{align*}
+	We know that, $h = t_n - t_{n-1}$. Therefore, 
+	\begin{align*}
+		e^y_n = - \dot q - \frac{1}{h\,\left(1 + \eta\right)}\,\left(q_{n-1} + \eta\,h\,y_{n-1} - q_n\right) = -\dot q - \frac{1}{\left(1 + \eta\right)}\left(\eta\,y_{n-1} - \frac{q_n - q_{n-1}}{h}\right).
+	\end{align*}	
+	We also know that, $\dot q = \frac{q_n - q_{n-1}}{h} + O(h)$. So,
+	\begin{align*}
+		e^y_n = -\dot q - \frac{1}{\left(1 + \eta\right)}\left(\eta\,y_{n-1} - \dot q + O(h)\right).
+	\end{align*}
+	We also need the error in the previous step, i.e, $e^y_{n-1} = y(t_{n-1}) - y_{n-1}$ Thus,
+	\begin{align*}
+		e^y_n = -\dot q - \frac{1}{\left(1 + \eta\right)}\left(\eta\,\left(y(t_{n-1}) - e^y_{n-1}\right) - \dot q + O(h)\right).
+	\end{align*}
+%	Assuming that the difference method is consistent (or accurate) of order $p$, i.e,
+%	\begin{align*}
+%		\textbf{d}_n &= O(h), & \implies & \frac{y(t_n) - y(t_{n-1})}{h} - f(t_{n-1},y_{n-1}) = O(h), \\
+%		\implies \frac{y(t_n) - y(t_{n-1})}{h} - y(t_{n-1}) &= O(h), & \implies & \dot q_n - \left(\dot q_{n-1} + h\,y_{n-1}\right) = h\,O(h), 
+%	\end{align*}
+%	\begin{align*}
+%		\frac{y(t-n)}{}
+%	\end{align*}
+	\textbf{Do not know how to proceed from here!}
+\end{enumerate}
+
+
+%\begin{enumerate}
+%	\item[(c)] Exact solution 
+%\end{enumerate}

@@ -1,0 +1,57 @@
+Jian helped!
+\begin{enumerate}
+	\item[(a)] \begin{align*}
+		 \text{The stabilized system is }\begin{cases}
+		 	\dot q &= v \\
+		 	m\,\dot v &= f - G^T\,\lambda \\
+		 	0 &= \ddot g + \gamma_1\,\dot g + \gamma_2\,g \\		 	
+		 \end{cases}
+		\end{align*}
+	\fbox{\begin{minipage}[h!]{\textwidth}
+			$\gamma_1$ and $\gamma_2$ chosen such that the root of the polynomial $s^2 + s\,\gamma_1 + \gamma_2 = 0$ is located in the left-half of the complex plane. 
+	\end{minipage}}	
+	\item[(b)] \begin{align*}
+		\text{Original system: }\begin{cases}
+			\dot q &= v \\
+			M\,\dot v &= f - G^T\,\lambda \\
+			0 &= G\,v = h\\		 	
+		\end{cases}
+	\end{align*}
+	$\dot h + \gamma\,h = 0$ is the stabilization, equivalent to, $G\,\dot v + \frac{\partial G\,v}{\partial q}\,v + \gamma\,G\,v = 0$.
+	Therefore, we get:
+	\begin{align*}
+		\begin{cases}
+			\dot q = v \quad & e_1 \\
+			M\,\dot v = f - G^T\,\lambda \quad & e_2\\
+			G\,\dot v + \frac{\partial G\,v}{\partial q}\,v + \gamma\,G\,v = 0 \quad & e_1\\		 	
+		\end{cases}
+	\end{align*}
+	Focusing on $e_2$:
+	Multiply both sides with $G\,M^{-1}$, we get:
+	\begin{align*}
+		G\,\dot v &= G\,M^{-1}\,f - G\,M^{-1}\,G^T\,\lambda & e_2,\\
+		\implies -\frac{\partial G\,v}{\partial q}\,v + \gamma\,G\,v &= G\,M^{-1}\,f - G\,M^{-1}\,G^T\,\lambda & e_2.
+	\end{align*}
+	Therefore,
+	\begin{align*}
+		\lambda&= \left(G\,M^{-1}\,G^T\right)^{-1}\,\left(G\,M^{-1}\,f + \frac{\partial G\,v}{\partial q}\,v + \gamma\,G\,v\right)& e_3
+	\end{align*}
+	substituting $e_3$ in $e_2$, we get:
+	\begin{align*}
+		\dot v &= M^{-1}\,f - M^{-1}\,G^T\,\left(G\,M^{-1}\,G^T\right)^{-1}\,\left(G\,M^{-1}\,f + \frac{\partial G\,v}{\partial q}\,v + \gamma\,G\,v\right)& e_4
+	\end{align*}
+	The system equations are:
+	\begin{align*}
+		\begin{cases}
+			\dot q = v \quad & e_1 \\
+			\dot v = M^{-1}\,f - M^{-1}\,G^T\,\left(G\,M^{-1}\,G^T\right)^{-1}\,\left(G\,M^{-1}\,f + \frac{\partial G\,v}{\partial q}\,v + \gamma\,G\,v\right) \quad &  e_4 	
+		\end{cases}
+	\end{align*}
+	This is equivalent to:
+	\begin{align*}
+		\begin{pmatrix}
+			\dot q \\
+			\dot v 
+		\end{pmatrix} &= \hat f(x) - \gamma\,F(x)\,h(x)
+	\end{align*}
+\end{enumerate}

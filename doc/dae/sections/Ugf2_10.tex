@@ -1,0 +1,165 @@
+\begin{enumerate}
+	\item[(a)] \textit{Differential index of the model? }
+	
+	Considering no grounding point, we get:
+	\begin{align*}
+		C\,\left((v_1 - v_2)' - (v_3 - v_2)'\right) &= i;  & e_1\\
+		-C\,\left((v_1 - v_2)' - (v_3 - v_2)'\right) + \frac{1}{R}\,(v_3 - v_2) &= 0;  & e_2\\
+		v_1 - v_2 &= v(t);  & e_3.
+	\end{align*}
+	
+	Considering ground point 2. By simplifying and differentiating $e_3$, we get:
+	\begin{align*}
+		v_3' &= \frac{1}{R\,C}\,v_3 + \frac{1}{C}\,v'(t); & e_2\\
+		v_1' &= v'(t); & e_3'
+	\end{align*}
+
+	\fbox{\begin{minipage}[h!]{\textwidth}
+				Therefore, the differential index is 1. 
+	\end{minipage}}
+
+	\textit{Does it matter for the index if the grounding point instead had been in point 1 or 3?} 
+	
+	Considering ground point 2. By simplifying and differentiating $e_3$, we get:
+	\begin{align*}
+		v_3' &= \frac{1}{R\,C}\,v_3 + \frac{1}{C}\,v'(t); & e_2\\
+		v_2' &= -v'(t); & e_3'
+	\end{align*}
+
+	\fbox{\begin{minipage}[h!]{\textwidth}
+		Therefore, the differential index is 1. 
+	\end{minipage}}
+
+	Considering ground point 3. By simplifying and differentiating $e_3$, we get:
+	\begin{align*}
+		v_1' &= -\frac{1}{R\,C}\,v_1 + \frac{1}{C}\,v'(t); & e_2\\
+		v_2' &= -v'(t); & e_3'
+	\end{align*}
+	
+	\fbox{\begin{minipage}[h!]{\textwidth}
+			Therefore, the differential index is 1. 
+	\end{minipage}}
+	The differential index does not change by changing the grounding point.	
+
+	\item[(b)] What is the structural index for the model?
+	
+	Considering ground point 2, we get:
+	\begin{center}
+		\begin{tabular}{c|c c c}
+			& $v_1'$ & $v_3'$ & i \\
+			\hline
+			$e_1$ & X & X & X \\
+			$e_2$ & X & X &  \\
+			$e_3$ &  &  &  \\
+		\end{tabular} $\underrightarrow{\text{differentiating}\,e_3}$
+	\begin{tabular}{c|c c c}
+		& $v_1'$ & $v_3'$ & i \\
+		\hline
+		$e_1$ & X & X & \textbf{X} \\
+		$e_2$ & X & \textbf{X} &  \\
+		$e_3'$ & \textbf{X} &  &  \\
+	\end{tabular} 
+	\end{center}
+
+	\fbox{\begin{minipage}[h!]{\textwidth}
+		The matrix now has full rank. The structural index is 2 (1+1). 
+	\end{minipage}}
+	
+	\item[(c)] What is the structural index for the model if the grounding point had been
+	in point 1 or 3?
+	
+	Considering ground point 1, we get:
+	\begin{center}
+		\begin{tabular}{c|c c c}
+			& $v_2'$ & $v_3'$ & i \\
+			\hline
+			$e_1$ & & X & X \\
+			$e_2$ & & X &  \\
+			$e_3$ & & &  \\
+		\end{tabular} $\underrightarrow{\text{differentiating}\,e_3}$
+	\begin{tabular}{c|c c c}
+		& $v_2'$ & $v_3'$ & i \\
+		\hline
+		$e_1$ & & X & \textbf{X} \\
+		$e_2$ & & \textbf{X} &  \\
+		$e_3'$ & \textbf{X} & &  \\
+	\end{tabular}
+	\end{center}
+	
+	\fbox{\begin{minipage}[h!]{\textwidth}
+			The matrix now has full rank. The structural index is 2 (1+1). 
+	\end{minipage}}
+	
+	Considering ground point 3, we get:
+	\begin{center}
+		\begin{tabular}{c|c c c}
+			& $v_1'$ & $v_2$ & i \\
+			\hline
+			$e_1$ & X &  & \textbf{X} \\
+			$e_2$ & X & \textbf{X} &  \\
+			$e_3$ & \textbf{X} & X &  \\
+		\end{tabular} 
+	\end{center}
+	
+	\fbox{\begin{minipage}[h!]{\textwidth}
+			The matrix now has full rank. The structural index is 1 (0+1). 
+	\end{minipage}}
+	
+	\item[(d)]  Index and the structural index for the model
+	\textit{Differential index}
+	\begin{align*}
+		\dot x + \dot y + x + y &= \cos(t) & e_1\\
+		\dot x + \dot y + x + 2\,y &= t & e_2\\		
+	\end{align*}
+	Consider $e_3$ = $e_2 - e_1$, i.e:
+	\begin{align*}
+		y &= t - \cos(t) & e_3\\
+	\end{align*}
+	differentiating $e_3$, we get:
+	\begin{align*}
+		\dot x + \dot y + x + y &= \cos(t) & e_1\\
+		\dot x + \dot y + x + 2\,y &= t & e_2\\	
+		\dot y &= 1 + \sin(t) & \dot e_3\\
+	\end{align*}	
+	\fbox{\begin{minipage}[h!]{\textwidth}
+		The differential index is 1
+	\end{minipage}}	
+	
+	\textit{Structural index}\\
+	Considering $e_1$ and $e_2$, we get:
+	\begin{center}
+		\begin{tabular}{c|c c}
+			& $\dot x$ & $\dot y$ \\
+			\hline
+			$e_1$ & X & X \\
+			$e_2$ & X & X 
+		\end{tabular}  Full rank? No! The matrix is actually: \begin{tabular}{c|c c}
+			& $\dot x$ & $\dot y$ \\
+			\hline
+			$e_1$ & 1 & 1 \\
+			$e_2$ & 1 & 1 
+		\end{tabular} 
+	\end{center}	
+	\fbox{\begin{minipage}[h!]{\textwidth}
+		Considering just $e_1$ and $e_2$, we get the structural index as 0.
+	\end{minipage}}	
+	
+	Considering $e_1$, and $e_3$, we get:
+	\begin{center}
+		\begin{tabular}{c|c c}
+			& $\dot x$ & $\dot y$ \\
+			\hline
+			$e_1$ & X & X \\
+			$e_3$ &  &  
+		\end{tabular}  $\underrightarrow{\text{differentiating}\,e_3}$ 
+		\begin{tabular}{c|c c}
+			& $\dot x$ & $\dot y$ \\
+			\hline
+			$e_1$ & \textbf{X} & X \\
+			$\dot e_3$ &  & \textbf{X} 
+		\end{tabular} 
+	\end{center}	
+	\fbox{\begin{minipage}[h!]{\textwidth}
+			Considering just $e_1$ and $e_3$, we get the structural index as 1.
+	\end{minipage}}	
+\end{enumerate}

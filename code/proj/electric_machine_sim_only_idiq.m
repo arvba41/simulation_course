@@ -37,7 +37,7 @@ fy = @(t,y) [1/params.Ld*(vd(t)-params.Rs*y(1)+params.Lq*y(2)*w_ref);...
 %% fixed step method
 
 % varying the step-size
-hstart = 2; hend =7;
+hstart = 2; hend =9;
 h_vec = 10.^(-1*(hstart:hend));
 
 % initial conditions

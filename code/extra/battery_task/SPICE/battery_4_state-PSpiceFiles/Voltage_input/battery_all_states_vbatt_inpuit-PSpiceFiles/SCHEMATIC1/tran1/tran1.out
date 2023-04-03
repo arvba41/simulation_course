@@ -1,0 +1,97 @@
+
+**** 01/08/22 19:07:30 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-tran1"  [ C:\Users\arvba41\OneDrive - Linköpings universitet\Courses\Simulation Course\ODE_Extra_task\batter
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "tran1.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\arvba41\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.4.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 3600 0 50 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source BATTERY_ALL_STATES_VBATT_INPUIT
+R_R1         N01663 N01673  {R0} TC=0,0 
+L_L1         N01673 N01599  {L0}  
+V_V2         N01609 0  
++PULSE 3.475V 3.525V 0 1n 1n 900 1800
+V_V1         N01663 0 {Vocv}
+C_C2         N01715 N01609  {Cdl}  TC=0,0 
+R_R3         N01715 N01875  {Rct} TC=0,0 
+R_R2         N01599 N01715  {Rsei} TC=0,0 
+C_C1         N01599 N01609  {Csei}  TC=0,0 
+C_C3         N01875 N01609  {Cw}  TC=0,0 
+.PARAM  vocv=3.5v rsei=0.5m cdl=94.8 csei=50.5 r0=0.565m cw=12.29k l0=100n
++  rct=2.22m
+
+**** RESUMING tran1.cir ****
+.END
+
+**** 01/08/22 19:07:30 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-tran1"  [ C:\Users\arvba41\OneDrive - Linköpings universitet\Courses\Simulation Course\ODE_Extra_task\batter
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N01599)    3.5000 (N01609)    3.4750 (N01663)    3.5000 (N01673)    3.5000     
+
+(N01715)    3.5000 (N01875)    3.5000 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V2         0.000E+00
+    V_V1         0.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 01/08/22 19:07:30 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-tran1"  [ C:\Users\arvba41\OneDrive - Linköpings universitet\Courses\Simulation Course\ODE_Extra_task\batter
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .16
+

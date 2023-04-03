@@ -1,0 +1,9 @@
+* source BATTERY_2_STATE_VOLTAGE
+V_V1         N00171 0 {Vocv}
+L_L1         N00167 N00143  {L0}  
+R_R1         N00171 N00167  {R0} TC=0,0 
+C_C1         N00143 N00215  {Csei}  TC=0,0 
+R_R2         N00143 N00215  {Rsei} TC=0,0 
+V_V2         N00215 0  
++PULSE 3.475V 3.525V 0 1n 1n 900 1800
+.PARAM  vocv=3.5v rsei=0.5m csei=50.5 r0=0.565m l0=100n

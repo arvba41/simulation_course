@@ -1,0 +1,10 @@
+* source BATTERY_2_STATES_CURRENT_INPUT
+C_C1         VSEI VBATT  {Csei}  TC=0,0 
+V_V1         VOCV 0 {Vocv}
+L_L1         VL0 VSEI  {L0}  
+R_R1         VOCV VL0  {R0} TC=0,0 
+R_R2         VSEI VBATT  {Rsei} TC=0,0 
+I_I1         VBATT GND DC 0Adc AC 0Aac
++PULSE 2 0 0 1n 1n 900 1800
+R_R3         0 GND  1u TC=0,0 
+.PARAM  vocv=3.5v rsei=0.5m csei=50.5 r0=0.565m l0=100n

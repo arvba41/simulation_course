@@ -1,0 +1,145 @@
+
+**** 01/08/22 08:29:50 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-tran1"  [ C:\Users\arvba41\OneDrive - Linköpings universitet\Courses\Simulation Course\ODE_Extra_task\batter
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "tran1.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\arvba41\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.4.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 3600 0 50 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source BATTERY_2_STATES_CURRENT_INPUT
+C_C1         VSEI VBATT  {Csei}  TC=0,0 
+V_V1         VOCV 0 {Vocv}
+L_L1         VL0 VSEI  {L0}  
+R_R1         VOCV VL0  {R0} TC=0,0 
+R_R2         VSEI VBATT  {Rsei} TC=0,0 
+I_I1         VBATT GND DC 0Adc AC 0Aac
++PULSE 2 0 0 1n 1n 900 1800
+R_R3         0 GND  1u TC=0,0 
+.PARAM  vocv=3.5v rsei=0.5m csei=50.5 r0=0.565m l0=100n
+
+**** RESUMING tran1.cir ****
+.END
+
+**** 01/08/22 08:29:50 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-tran1"  [ C:\Users\arvba41\OneDrive - Linköpings universitet\Courses\Simulation Course\ODE_Extra_task\batter
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  GND) 2.000E-06  (  VL0)    3.4989  ( VOCV)    3.5000  ( VSEI)    3.4989      
+
+(VBATT)    3.4979  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -2.000E+00
+
+    TOTAL POWER DISSIPATION   7.00E+00  WATTS
+
+Reducing minimum delta to make the circuit converge.
+Reducing minimum delta to make the circuit converge.
+Reducing minimum delta to make the circuit converge.
+Reducing minimum delta to make the circuit converge.
+Reducing minimum delta to make the circuit converge.
+Reducing minimum delta to make the circuit converge.
+
+ERROR(ORPSIM-16550): Floating point computation failed during matrix solution. Possible solutions: 1)Ensure that all device parameters are in valid range. 2)Try using .options LIMIT
+
+INTERNAL ERROR -- Divide by Zero, Divide
+
+ABORTING SIMULATION
+**** 01/08/22 08:29:50 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-tran1"  [ C:\Users\arvba41\OneDrive - Linköpings universitet\Courses\Simulation Course\ODE_Extra_task\batter
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+Node counts:
+  Top level (NUNODS)                =           6
+  External (NCNODS)                 =           6
+  Total (NUMNOD)                    =           6
+
+Total device count (NUMEL)          =           8
+  Capacitors (C)                    =           1
+  Current Sources (I)               =           1
+  Inductors (L)                     =           1
+  Resistors (R)                     =           3
+  Voltage Sources (V)               =           1
+
+Number of subcircuits (X)           =           0
+
+Matrix statistics:
+  Matrix size (NSTOP)               =           8
+  Initial no. elements (NTTAR)      =          18
+  No. elements w/ fillin (NTTBR)    =          19
+  No. fillins (IFILL)               =           1
+  No. overflows (NTTOV)             =          14
+  No. LU operations (IOPS)          =          29
+  Percent sparsity (PERSPA)         =      70.313
+
+Analysis statistics:
+  No. total time points (NUMTTP)    =         532
+  No. rejected time points (NUMRTP) =          36
+  No. iterations (NUMNIT)           =        1596
+
+Load Threads                        =           1
+
+Runtime statistics:                       Seconds      Iterations
+  Matrix load                       =        0.00
+  Matrix solution                   =         .02               3
+  Readin                            =        0.00
+  General setup                     =        0.00
+  CMI setup                     =        0.00
+  Setup                             =        0.00
+  DC sweep                          =        0.00               0
+  Bias point                        =        0.00               5
+  AC and noise                      =        0.00               0
+  Total transient analysis          =        0.00
+  Output                            =        0.00
+  Overhead                          =         .23
+  License check-out time            =        1.67
+  Total job time (using Solver 1)   =         .03
+

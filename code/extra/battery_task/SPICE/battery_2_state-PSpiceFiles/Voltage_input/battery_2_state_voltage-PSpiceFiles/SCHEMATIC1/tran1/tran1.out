@@ -1,0 +1,91 @@
+
+**** 01/08/22 08:37:05 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-tran1"  [ C:\Users\arvba41\OneDrive - Linköpings universitet\Courses\Simulation Course\ODE_Extra_task\batter
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "tran1.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\arvba41\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.4.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 3600 0 50 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source BATTERY_2_STATE_VOLTAGE
+V_V1         N00171 0 {Vocv}
+L_L1         N00167 N00143  {L0}  
+R_R1         N00171 N00167  {R0} TC=0,0 
+C_C1         N00143 N00215  {Csei}  TC=0,0 
+R_R2         N00143 N00215  {Rsei} TC=0,0 
+V_V2         N00215 0  
++PULSE 3.475V 3.525V 0 1n 1n 900 1800
+.PARAM  vocv=3.5v rsei=0.5m csei=50.5 r0=0.565m l0=100n
+
+**** RESUMING tran1.cir ****
+.END
+
+**** 01/08/22 08:37:05 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-tran1"  [ C:\Users\arvba41\OneDrive - Linköpings universitet\Courses\Simulation Course\ODE_Extra_task\batter
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00143)    3.4867 (N00167)    3.4867 (N00171)    3.5000 (N00215)    3.4750 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -2.347E+01
+    V_V2         2.347E+01
+
+    TOTAL POWER DISSIPATION   5.87E-01  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 01/08/22 08:37:05 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-tran1"  [ C:\Users\arvba41\OneDrive - Linköpings universitet\Courses\Simulation Course\ODE_Extra_task\batter
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .05
+

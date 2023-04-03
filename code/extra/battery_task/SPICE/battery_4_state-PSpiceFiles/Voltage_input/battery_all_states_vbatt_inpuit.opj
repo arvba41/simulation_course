@@ -1,0 +1,59 @@
+(ExpressProject "battery_all_states_vbatt_inpuit"
+  (ProjectVersion "19981106")
+  (SoftwareVersion "17.4-2019 S017 (3936576)  [4/19/2021]-[01/08/22]")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library")
+    ("Allegro Netlist Directory" "allegro")
+    (DOCKED "TRUE")
+    (DOCKING_POSITION "59419")
+    (NoModify)
+    (File ".\battery_all_states_vbatt_inpuit.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE"))
+  (Folder "Layout")
+  (Folder "Outputs"
+    (File
+       ".\battery_all_states_vbatt_inpuit-pspicefiles\schematic1\schematic1.net"
+      (Type "Report")))
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (ActiveProfile
+         ".\battery_all_states_vbatt_inpuit-pspicefiles\schematic1\tran1.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\battery_all_states_vbatt_inpuit-pspicefiles\schematic1\tran1.sim"
+        (DisplayName "SCHEMATIC1-tran1")
+        (Type "PSpice Profile")))
+    (Folder "Model Libraries"
+      (Sort User))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (Folder "Logs")
+  (PartMRUSelector)
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Outputs")
+      (Select "Design Resources"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 725"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 5 1268 24 766")
+        (Scroll "-125 0")
+        (Zoom "101")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\ARVBA41\ONEDRIVE - LINKÖPINGS UNIVERSITET\COURSES\SIMULATION COURSE\ODE_EXTRA_TASK\BATTERY_TASK\SPICE\BATTERY_4_STATE-PSPICEFILES\VOLTAGE_INPUT\BATTERY_ALL_STATES_VBATT_INPUIT.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1"))))

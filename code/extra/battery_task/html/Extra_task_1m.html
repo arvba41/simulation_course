@@ -1,0 +1,242 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Extra_task_1m</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-12-21"><meta name="DC.source" content="Extra_task_1m.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Battery equivalemt circuit model and simulation</a></li><li><a href="#3">States definitions</a></li><li><a href="#4">State equations</a></li><li><a href="#8">State Matrix</a></li></ul></div><h2 id="1">Battery equivalemt circuit model and simulation</h2><pre class="codeinput">clear <span class="string">all</span>
+clc
+</pre><p><b>Discharge current is positive direction</b></p><h2 id="3">States definitions</h2><pre class="codeinput">syms <span class="string">v_batt</span> <span class="string">i_in</span> <span class="string">C_sei</span> <span class="string">C_dl</span> <span class="string">C_w</span> <span class="string">R_dl</span> <span class="string">R_sei</span> <span class="string">R_0</span> <span class="string">L_0</span> <span class="string">v_ocv</span>
+syms <span class="string">i_batt(t)</span> <span class="string">v_sei(t)</span> <span class="string">v_dl(t)</span> <span class="string">v_w(t)</span> <span class="comment">% states</span>
+
+syms <span class="string">i_sei</span> <span class="string">i_oth</span> <span class="string">i_w</span> <span class="string">i_dl</span><span class="comment">% temp variables</span>
+</pre><h2 id="4">State equations</h2><p>Loop 1</p><pre class="codeinput"><span class="comment">% eqn1 = v_ocv == L_0*diff(i_batt(t),t) + i_batt*R_0 + v_sei + v_batt</span>
+eqn1 = L_0*diff(i_batt(t),t) == v_ocv - i_batt*R_0 - v_sei - v_batt
+</pre><pre class="codeoutput"> 
+eqn1(t) =
+ 
+L_0*diff(i_batt(t), t) == v_ocv - v_batt - v_sei(t) - R_0*i_batt(t)
+ 
+</pre><p>Loop 2</p><pre class="codeinput"><span class="comment">% eqn2 = v_ocv == L_0*diff(i_batt(t),t) +  R_0*i_batt + i_oth*R_sei + v_dl</span>
+<span class="comment">% eqn2 = v_ocv == v_ocv - i_batt*R_0 - v_sei - v_batt +  R_0*i_batt + i_oth*R_sei + v_dl</span>
+<span class="comment">% eqn2 = 0 == - v_sei - v_batt + i_oth*R_sei + v_dl</span>
+<span class="comment">% eqn2a = i_batt == i_sei + i_oth</span>
+<span class="comment">% eqn2a = i_oth == i_batt - i_sei</span>
+<span class="comment">% eqn2a = i_oth == i_batt - C_sei*diff(v_sei,t)</span>
+<span class="comment">% eqn2 = 0 == - i_batt*R_0 - v_sei - v_batt +  R_0*i_batt + (i_batt - C_sei*diff(v_sei,t))*R_sei + v_dl</span>
+<span class="comment">% eqn2 = (C_sei*diff(v_sei,t))*R_sei - i_batt*R_sei == - v_sei - v_batt + v_dl</span>
+<span class="comment">% eqn2 = (C_sei*diff(v_sei,t))*R_sei == i_batt*R_sei - v_sei - v_batt + v_dl</span>
+eqn2 = diff(v_sei,t) == (i_batt*R_sei - v_sei - v_batt + v_dl)*(1/(C_sei*R_sei))
+</pre><pre class="codeoutput"> 
+eqn2(t) =
+ 
+diff(v_sei(t), t) == -(v_batt - v_dl(t) + v_sei(t) - R_sei*i_batt(t))/(C_sei*R_sei)
+ 
+</pre><p>Loop 3a</p><pre class="codeinput"><span class="comment">% eqn3a = i_oth*R_sei + v_dl == v_sei</span>
+<span class="comment">% eqn3a = i_oth == (v_sei - v_dl)/R_sei</span>
+<span class="comment">% eqn3b = i_oth*R_sei + i_w*R_dl + v_w == v_sei</span>
+<span class="comment">% eqn3b = i_w*R_dl + v_w == v_dl</span>
+<span class="comment">% eqn3b = i_w == (v_dl - v_w)/R_dl</span>
+<span class="comment">% eqn3 = C_w*diff(v_w,t) == i_w</span>
+eqn3 = diff(v_w,t) == (v_dl - v_w)*1/(R_dl*C_w)
+</pre><pre class="codeoutput"> 
+eqn3(t) =
+ 
+diff(v_w(t), t) == (v_dl(t) - v_w(t))/(C_w*R_dl)
+ 
+</pre><p>Loop 4</p><pre class="codeinput"><span class="comment">% eqn4 = i_dl + i_w == i_oth</span>
+<span class="comment">% eqn4 = i_dl + i_w == (v_sei - v_dl)/R_sei</span>
+<span class="comment">% eqn4 = i_dl + (v_dl - v_w)/R_dl == (v_sei - v_dl)/R_sei</span>
+<span class="comment">% eqn4 = i_dl == (v_sei - v_dl)/R_sei - (v_dl - v_w)/R_dl</span>
+<span class="comment">% eqn4 = i_dl == v_sei/R_sei - v_dl/R_sei - v_dl/R_dl + v_w/R_dl</span>
+<span class="comment">% eqn4 = C_dl*diff(v_dl,t) == v_sei/R_sei - v_dl*(1/R_sei + 1/R_dl) + v_w/R_dl</span>
+eqn4 = diff(v_dl,t) == (v_sei/R_sei - v_dl*(1/R_sei + 1/R_dl) + v_w/R_dl)*(1/C_dl)
+</pre><pre class="codeoutput"> 
+eqn4(t) =
+ 
+diff(v_dl(t), t) == (v_w(t)/R_dl - v_dl(t)*(1/R_dl + 1/R_sei) + v_sei(t)/R_sei)/C_dl
+ 
+</pre><h2 id="8">State Matrix</h2><pre class="codeinput"><span class="comment">% eqn = diff([i_batt(t); v_sei; v_w; v_dl],t) == ...</span>
+<span class="comment">%     [(1/L_0)*(v_ocv - i_batt*R_0 - v_sei - v_batt); (1/(C_sei*R_sei))*(i_batt*R_sei - v_sei - v_batt + v_dl); ...</span>
+<span class="comment">%     (v_dl - v_w)*1/(R_dl*C_w); (v_sei/R_sei - v_dl*(1/R_sei + 1/R_dl) + v_w/R_dl)*(1/C_dl)]</span>
+
+X = [i_batt; v_sei; v_w; v_dl]
+X_dot = diff([i_batt; v_sei; v_w; v_dl],t)
+U = v_batt
+A = [(1/L_0)*(v_ocv + ([- i_batt*R_0, -v_sei, -v_ocv/v_dl*v_dl, -v_ocv/v_w*v_w]));<span class="keyword">...</span>
+    (1/(C_sei*R_sei))*([i_batt*R_sei, -v_sei, +v_dl, 0*v_w]); [0, 0, 1/(R_dl*C_w), -1/(R_dl*C_w)]; <span class="keyword">...</span>
+    (1/C_dl)*[0, v_sei/R_sei, -v_dl*(1/R_sei + 1/R_dl), +v_w/R_dl]]
+B = [(-1/L_0)*v_batt; (-1/(C_sei*R_sei))*v_batt; 0; 0]
+
+<span class="comment">% eqn = X_dot == A*X + B*U</span>
+</pre><pre class="codeoutput"> 
+X(t) =
+ 
+i_batt(t)
+ v_sei(t)
+   v_w(t)
+  v_dl(t)
+ 
+ 
+X_dot(t) =
+ 
+diff(i_batt(t), t)
+ diff(v_sei(t), t)
+   diff(v_w(t), t)
+  diff(v_dl(t), t)
+ 
+ 
+U =
+ 
+v_batt
+ 
+ 
+A(t) =
+ 
+[(v_ocv - R_0*i_batt(t))/L_0,  (v_ocv - v_sei(t))/L_0,                                  0,                  0]
+[            i_batt(t)/C_sei, -v_sei(t)/(C_sei*R_sei),              v_dl(t)/(C_sei*R_sei),                  0]
+[                          0,                       0,                       1/(C_w*R_dl),      -1/(C_w*R_dl)]
+[                          0,   v_sei(t)/(C_dl*R_sei), -(v_dl(t)*(1/R_dl + 1/R_sei))/C_dl, v_w(t)/(C_dl*R_dl)]
+ 
+ 
+B =
+ 
+          -v_batt/L_0
+-v_batt/(C_sei*R_sei)
+                    0
+                    0
+ 
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Battery equivalemt circuit model and simulation
+
+clear all
+clc
+%% 
+% 
+% 
+% *Discharge current is positive direction*
+%% States definitions
+
+syms v_batt i_in C_sei C_dl C_w R_dl R_sei R_0 L_0 v_ocv
+syms i_batt(t) v_sei(t) v_dl(t) v_w(t) % states
+
+syms i_sei i_oth i_w i_dl% temp variables
+%% State equations
+% Loop 1
+
+% eqn1 = v_ocv == L_0*diff(i_batt(t),t) + i_batt*R_0 + v_sei + v_batt 
+eqn1 = L_0*diff(i_batt(t),t) == v_ocv - i_batt*R_0 - v_sei - v_batt 
+%% 
+% Loop 2 
+
+% eqn2 = v_ocv == L_0*diff(i_batt(t),t) +  R_0*i_batt + i_oth*R_sei + v_dl  
+% eqn2 = v_ocv == v_ocv - i_batt*R_0 - v_sei - v_batt +  R_0*i_batt + i_oth*R_sei + v_dl 
+% eqn2 = 0 == - v_sei - v_batt + i_oth*R_sei + v_dl 
+% eqn2a = i_batt == i_sei + i_oth
+% eqn2a = i_oth == i_batt - i_sei 
+% eqn2a = i_oth == i_batt - C_sei*diff(v_sei,t) 
+% eqn2 = 0 == - i_batt*R_0 - v_sei - v_batt +  R_0*i_batt + (i_batt - C_sei*diff(v_sei,t))*R_sei + v_dl 
+% eqn2 = (C_sei*diff(v_sei,t))*R_sei - i_batt*R_sei == - v_sei - v_batt + v_dl 
+% eqn2 = (C_sei*diff(v_sei,t))*R_sei == i_batt*R_sei - v_sei - v_batt + v_dl 
+eqn2 = diff(v_sei,t) == (i_batt*R_sei - v_sei - v_batt + v_dl)*(1/(C_sei*R_sei))
+%% 
+% Loop 3a
+
+% eqn3a = i_oth*R_sei + v_dl == v_sei
+% eqn3a = i_oth == (v_sei - v_dl)/R_sei
+% eqn3b = i_oth*R_sei + i_w*R_dl + v_w == v_sei
+% eqn3b = i_w*R_dl + v_w == v_dl
+% eqn3b = i_w == (v_dl - v_w)/R_dl
+% eqn3 = C_w*diff(v_w,t) == i_w
+eqn3 = diff(v_w,t) == (v_dl - v_w)*1/(R_dl*C_w)
+%% 
+% Loop 4
+
+% eqn4 = i_dl + i_w == i_oth
+% eqn4 = i_dl + i_w == (v_sei - v_dl)/R_sei
+% eqn4 = i_dl + (v_dl - v_w)/R_dl == (v_sei - v_dl)/R_sei
+% eqn4 = i_dl == (v_sei - v_dl)/R_sei - (v_dl - v_w)/R_dl 
+% eqn4 = i_dl == v_sei/R_sei - v_dl/R_sei - v_dl/R_dl + v_w/R_dl 
+% eqn4 = C_dl*diff(v_dl,t) == v_sei/R_sei - v_dl*(1/R_sei + 1/R_dl) + v_w/R_dl 
+eqn4 = diff(v_dl,t) == (v_sei/R_sei - v_dl*(1/R_sei + 1/R_dl) + v_w/R_dl)*(1/C_dl)
+%% State Matrix
+
+% eqn = diff([i_batt(t); v_sei; v_w; v_dl],t) == ...
+%     [(1/L_0)*(v_ocv - i_batt*R_0 - v_sei - v_batt); (1/(C_sei*R_sei))*(i_batt*R_sei - v_sei - v_batt + v_dl); ...
+%     (v_dl - v_w)*1/(R_dl*C_w); (v_sei/R_sei - v_dl*(1/R_sei + 1/R_dl) + v_w/R_dl)*(1/C_dl)]
+
+X = [i_batt; v_sei; v_w; v_dl]
+X_dot = diff([i_batt; v_sei; v_w; v_dl],t)
+U = v_batt
+A = [(1/L_0)*(v_ocv + ([- i_batt*R_0, -v_sei, -v_ocv/v_dl*v_dl, -v_ocv/v_w*v_w]));...
+    (1/(C_sei*R_sei))*([i_batt*R_sei, -v_sei, +v_dl, 0*v_w]); [0, 0, 1/(R_dl*C_w), -1/(R_dl*C_w)]; ...
+    (1/C_dl)*[0, v_sei/R_sei, -v_dl*(1/R_sei + 1/R_dl), +v_w/R_dl]]
+B = [(-1/L_0)*v_batt; (-1/(C_sei*R_sei))*v_batt; 0; 0]
+
+% eqn = X_dot == A*X + B*U
+##### SOURCE END #####
+--></body></html>

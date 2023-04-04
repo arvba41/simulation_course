@@ -60,7 +60,7 @@ end
 %% plotting
 
 textwidth = 15; textheight = 21;
-figsize = [textwidth,  textheight*0.5];
+figsize = [textwidth,  textheight*round(length(h_vec)/2)/6];
 f = figure(10); clf; clear ax
 
 tiledlayout(round(length(h_vec)/2),2);
@@ -83,7 +83,7 @@ set(f, 'PaperUnits', 'centimeters', 'PaperSize', figsize);
 set(f, 'PaperUnits', 'normalized', 'PaperPosition', [0, 0, 1, 1]);
 ax(1).YLim = [0 300];
 
-print -dpdf plot1.pdf
+print -dpdf ../../doc/proj/Figures/plot1.pdf
 
 %% plotting 2
 
@@ -120,4 +120,4 @@ set(h, 'TickLabelInterpreter', 'latex')
 set(f, 'PaperUnits', 'centimeters', 'PaperSize', figsize);
 set(f, 'PaperUnits', 'normalized', 'PaperPosition', [0, 0, 1, 1]);
 
-print -dpdf plot2.pdf
+print -dpdf ../../doc/proj/Figures/plot2.pdf

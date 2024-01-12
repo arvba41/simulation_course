@@ -66,6 +66,9 @@ The PMSM can thus be modeled as follows:
 \end{align*}
 where \wm is PMSM rotor rotating magnetic field's angular velocity, \Rs is the stater resistance per phase, \Ld and \Lq are $d$ and $q$ axis inductances, respectively, \flux is the flux constant of the permanent magnet, \np is the number of pole pairs, and \Tl is the load torque. 
 
+% \printinunitsof{mm}\prntlen{\textwidth} (\printinunitsof{in}\prntlen{\textwidth})
+% \printinunitsof{mm}\prntlen{\textheight} (\printinunitsof{in}\prntlen{\textheight})
+
 \fbox{\begin{minipage}[h!]{\textwidth}
 	The system equations are given below:
 	\begin{align}
@@ -116,6 +119,7 @@ The table \prettyref{tab:simparam} below provides the simulation parameters:
 		Motor inertia & \J & 1.09\,kgm$^2$\\
 		Number of pole pairs & \np & 20\\
 		Rated speed (Nominal speed) & \Nrnom & 1000\,rpm \\
+		Operating speed & \Nr & 960\,rpm \\
 		Electrical frequency & \textit{f\textsubscript{1}} & 166.67\,Hz\\
 		Stator inductance (direct axis)& \Ld & 48.35\,$\mu$H\\
 		Stator inductance (quadrature axis)& \Ld & 48.35\,$\mu$H\\

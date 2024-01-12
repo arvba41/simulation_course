@@ -55,6 +55,9 @@
 \newrefformat{fig}{Figure \ref{#1}}
 \newrefformat{tab}{Table \ref{#1}}
 
+% package for text width 
+\usepackage{layouts}
+
 %% Package to import MATLAB codes
 \usepackage{listings}
 %\usepackage[usenames,dvipsnames]{color}
@@ -129,11 +132,14 @@
 	\end{center}
 	\input{sections/introduction}
 	\newpage
-	\input{sections/constantstepmethod}
-	\newpage
-	\input{sections/variablestepmethod}
-	\newpage
-	\input{sections/conclusions}
+	\input{sections/sim.tex}
+	% \input{sections/constantstepmethod}
+	% \newpage
+	% \input{sections/variablestepmethod}
+	% \newpage
+	% \input{sections/conclusions}
+	% \newpage
+	
 %	Consistency
 %	Whether or not the numerical solution gives the
 %	same solution as the differential equation

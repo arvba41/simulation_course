@@ -88,21 +88,21 @@ count = 1;
 tiledlayout(3,3)
 for ii = [3 5 7]
     nexttile;
-    plot(ysimef{ii,3}.t,ysimef{ii,3}.y(1,:),'LineWidth',2); grid on;  
+    plot(ysimef{ii,3}.t,ysimef{ii,3}.y(1,:),'LineWidth',2); grid on; hold on 
     title('$i_{d}(t)$ [A]'); xlabel('$t$ [s]');
-    ax(count) = figtex(gca);
+    % ax(count) = figtex(gca);
     
     nexttile;
     plot(ysimef{ii,3}.t,ysimef{ii,3}.y(2,:),'LineWidth',2); grid on;  
     title('$i_{q}(t)$ [A]'); xlabel('$t$ [s]'); 
-    ax(count + 1) = figtex(gca);
+    % ax(count + 1) = figtex(gca);
 
     nexttile;
     plot(ysimef{ii,3}.t,ysimef{ii,3}.wout,'LineWidth',2); grid on;
     title('$\omega_{r(m)}(t)$ [rpm]'); xlabel('$t$ [s]'); 
     lgd = "$h=\ $"+string(h_vec(ii));
     legend(char(lgd)); 
-    ax(count + 2) = figtex(gca,1);
+    % ax(count + 2) = figtex(gca,1);
     
     count = count + 3;
     

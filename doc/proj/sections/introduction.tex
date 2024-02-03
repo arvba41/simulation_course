@@ -36,7 +36,7 @@ Transformation to an equivalent two-phase system, i.e, Clarke transformation, is
 \end{align*}
 where $K$ is a constant (1, peak-scaling and $\sqrt{3/2}$ for power-scaling).
 
-In-order to simplify the analysis, the reference frame of a three-phase vectors are rotated. i.e:
+To simplify the analysis, the rotating reference frame of three-phase vectors is considered, i.e.,
 \begin{align*}
 	\begin{pmatrix}
 			\vd \\
@@ -104,9 +104,9 @@ where \wm is PMSM rotor rotating magnetic field's angular velocity, \Rs is the s
 
 The above gives the ODE with three dynamic variables, \id, \iq, \wm. 
 	
-The main aim of the project is to show that the numerical solution gives the same solution as the differential equation. However, we cannot determine the solution analytically. Therefore, we need to try perform the several checks. The following sections cover these in detail. 
+The main aim of the project is to show that the numerical solution gives the solution as the differential equation. However, we cannot determine the solution analytically. Therefore, we need to try to perform several checks. The following sections cover these in detail. 
 
-Two different single step numerical methods are chosen: a fixed-step and a variables step length methods. \textit{Euler forward} method is used as the fixed step solver. The \textit{Dormand-Prince 4(5)} method is employed as the variable step length solver.
+Two different single-step numerical methods are chosen: a fixed-step and a variables step length method. \textit{Euler forward} method is used as the fixed-step solver. The \textit{Dormand-Prince 4(5)} method is employed as the variable step length solver.
 
 The table \prettyref{tab:simparam} below provides the simulation parameters:
 \begin{table}[h!b!]
